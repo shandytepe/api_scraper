@@ -5,6 +5,17 @@ import time
 from src.utils import current_time
 
 def scrape_ggwp_api(num_of_page):
+    """
+    Function yang digunakan untuk scrape data menggunakan GGWP API
+
+    Parameters
+    ----------
+    num_of_page (int): Jumlah halaman yang ingin discrape
+
+    Returns
+    -------
+    data (list): List of json atau list of dictionary data yang sudah discrape
+    """
     data = []
 
     for page in tqdm(range(1, num_of_page + 1)):
@@ -24,6 +35,15 @@ def scrape_ggwp_api(num_of_page):
     return data
 
 def save_output(data, filename):
+    """
+    Function yang digunakan untuk mengubah data menjadi DataFrame dan
+    menyimpan data menjadi format csv
+
+    Parameters
+    ----------
+    data (list): List of dictionary berisi data yang sudah discrape pada proses sebelumnya
+    filename (str): Filename yang digunakan untuk menyimpan data scrape 
+    """
     data = pd.DataFrame(data)
 
     data["scraped_at"] = current_time()

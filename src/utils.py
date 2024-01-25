@@ -1,6 +1,14 @@
 import pandas as pd
 
 def current_time():
+    """
+    Function yang digunakan untuk mendapatkan waktu sekarang
+    yang digunakan untuk timestamp ketika scrapiing data
+
+    Returns
+    -------
+    formatted_timestamp (timestamp): Timestamp yang didapatkan pada saat function digunakan
+    """
     # Get the current timestamp
     current_timestamp = pd.Timestamp.now()
 
